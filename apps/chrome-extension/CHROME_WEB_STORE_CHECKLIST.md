@@ -26,6 +26,7 @@
 - [ ] Support email
 - [ ] Public website or support page
 - [ ] If using GitHub Pages, publish the docs site from [docs](/Users/sammcheng/Desktop/web5/docs) and record the final privacy/support URLs
+  Use the GitHub Actions workflow at [.github/workflows/pages.yml](/Users/sammcheng/Desktop/web5/.github/workflows/pages.yml) after enabling Pages for the repository.
 
 ## Compliance
 
