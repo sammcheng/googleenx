@@ -195,11 +195,16 @@ describe('App', () => {
     await screen.findByText('DoorDash');
     const initialGetCalls = mockChrome.storage.local.get.mock.calls.length;
 
-    vi.useFakeTimers();
     const refreshButton = screen.getByTitle('Refresh comparison');
+    await waitFor(() => {
+      expect(refreshButton).not.toBeDisabled();
+    });
+
+    vi.useFakeTimers();
 
     await act(async () => {
       fireEvent.click(refreshButton);
+      await Promise.resolve();
     });
 
     expect(mockChrome.runtime.sendMessage).toHaveBeenCalledWith({

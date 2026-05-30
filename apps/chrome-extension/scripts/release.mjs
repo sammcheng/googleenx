@@ -29,7 +29,7 @@ const run = (args) =>
     });
   });
 
-await run(['run', 'test', '--', '--run']);
+await run(['run', 'test', '--run']);
 await run(['run', 'build']);
 await run(['run', 'release:validate']);
 await run(['run', 'package:zip']);

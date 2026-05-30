@@ -6,6 +6,8 @@ import {
   STORAGE_KEYS,
 } from '@/shared/extension';
 
+const configuredApiBaseUrl = import.meta.env.VITE_API_BASE_URL ?? 'https://api.foodpricecomparison.com';
+
 const mockChrome = {
   runtime: {
     onMessage: {
@@ -344,7 +346,7 @@ describe('BackgroundServiceWorker', () => {
       data: expect.objectContaining({
         serviceWorker: 'running',
         authToken: false,
-        apiBaseUrl: 'https://api.foodpricecomparison.com',
+        apiBaseUrl: configuredApiBaseUrl,
         pendingComparisons: 0,
         timestamp: expect.any(Number),
       }),
