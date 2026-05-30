@@ -1,0 +1,73 @@
+{
+  "manifest_version": 3,
+  "name": "Food Delivery Price Comparison",
+  "version": "1.0.0",
+  "description": "Compare food delivery prices across DoorDash, Uber Eats, and Grubhub to find the best deals",
+  "permissions": [
+    "activeTab",
+    "alarms",
+    "storage",
+    "geolocation",
+    "notifications"
+  ],
+  "host_permissions": [
+    "https://*.doordash.com/*",
+    "https://*.ubereats.com/*",
+    "https://*.grubhub.com/*",
+    "https://*.seamless.com/*",
+    "https://api.foodpricecomparison.com/*"
+  ],
+  "background": {
+    "service_worker": "background/background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*.doordash.com/checkout*",
+        "https://*.doordash.com/cart*",
+        "https://*.ubereats.com/checkout*",
+        "https://*.ubereats.com/cart*",
+        "https://*.grubhub.com/checkout*",
+        "https://*.grubhub.com/cart*",
+        "https://*.seamless.com/checkout*",
+        "https://*.seamless.com/cart*"
+      ],
+      "js": ["content/content.js"],
+      "css": ["content/content.css"],
+      "run_at": "document_end"
+    }
+  ],
+  "action": {
+    "default_popup": "popup/index.html",
+    "default_title": "Food Delivery Price Comparison",
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "48": "icons/icon-48.png",
+      "128": "icons/icon-128.png"
+    }
+  },
+  "options_page": "options/index.html",
+  "icons": {
+    "16": "icons/icon-16.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "assets/*"
+      ],
+      "matches": [
+        "https://*.doordash.com/*",
+        "https://*.ubereats.com/*",
+        "https://*.grubhub.com/*",
+        "https://*.seamless.com/*"
+      ]
+    }
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://api.foodpricecomparison.com;"
+  },
+  "minimum_chrome_version": "88"
+}

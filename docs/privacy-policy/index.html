@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Privacy Policy | Food Delivery Price Comparison</title>
+    <style>
+      :root {
+        --bg: #fcfaf5;
+        --text: #1f2937;
+        --muted: #596275;
+        --border: #e7dccf;
+        --accent: #b45309;
+      }
+
+      body {
+        margin: 0;
+        font-family: Georgia, "Times New Roman", serif;
+        background: linear-gradient(180deg, #fffdf8 0%, var(--bg) 100%);
+        color: var(--text);
+      }
+
+      main {
+        max-width: 860px;
+        margin: 0 auto;
+        padding: 48px 20px 72px;
+      }
+
+      article {
+        background: white;
+        border: 1px solid var(--border);
+        border-radius: 18px;
+        padding: 28px;
+        box-shadow: 0 8px 30px rgba(31, 41, 55, 0.06);
+      }
+
+      h1, h2 {
+        line-height: 1.15;
+      }
+
+      h1 {
+        margin-top: 0;
+        font-size: clamp(2rem, 5vw, 3.2rem);
+      }
+
+      h2 {
+        margin-top: 28px;
+        font-size: 1.35rem;
+      }
+
+      p, li {
+        line-height: 1.7;
+        font-size: 1.02rem;
+        color: var(--muted);
+      }
+
+      a {
+        color: var(--accent);
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <article>
+        <p><a href="../">Back to support site</a></p>
+        <h1>Privacy Policy</h1>
+        <p><strong>Last updated:</strong> 2026-05-29</p>
+
+        <p>
+          Food Delivery Price Comparison helps users compare checkout totals across supported food
+          delivery platforms.
+        </p>
+
+        <h2>What the extension accesses</h2>
+        <ul>
+          <li>Checkout page details on supported delivery sites such as restaurant name, cart items, quantities, prices, subtotal, fees, tax, tip, and total.</li>
+          <li>User-configured preferences stored in Chrome storage such as preferred platforms, gas price, miles per gallon, and optional location coordinates.</li>
+          <li>Optional geolocation only if the user explicitly requests it from the options page.</li>
+        </ul>
+
+        <h2>How data is used</h2>
+        <ul>
+          <li>To compare the current checkout against supported delivery platforms.</li>
+          <li>To estimate pickup gas cost when the user enables that feature.</li>
+          <li>To render comparison results in the extension popup.</li>
+        </ul>
+
+        <h2>What may be sent to the backend</h2>
+        <ul>
+          <li>Restaurant and cart item details.</li>
+          <li>Pricing details from the current checkout.</li>
+          <li>Delivery address fields needed for comparison.</li>
+          <li>User preference fields required for gas or platform filtering.</li>
+          <li>Optional location coordinates if the user has saved them.</li>
+        </ul>
+
+        <h2>What is not sold</h2>
+        <ul>
+          <li>Personal information is not sold.</li>
+          <li>Checkout contents are not used for advertising.</li>
+        </ul>
+
+        <h2>Data storage and retention</h2>
+        <ul>
+          <li>Preferences are stored in Chrome extension storage.</li>
+          <li>Recent comparison results may be stored locally in Chrome storage so the popup can display them.</li>
+          <li>Locally stored extension data remains until the user changes settings, clears extension data, or uninstalls the extension.</li>
+          <li>Backend retention depends on the deployed API environment and should be reflected in the final production policy.</li>
+        </ul>
+
+        <h2>Third parties</h2>
+        <ul>
+          <li>Supported food delivery websites.</li>
+          <li>The deployed comparison API.</li>
+        </ul>
+
+        <h2>Contact</h2>
+        <p>
+          Replace this paragraph with your real support email and public business contact details
+          before using this page in a live store submission.
+        </p>
+      </article>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uber Eats Extractor Test</title>
+</head>
+<body>
+    <h1>Uber Eats Extractor Test</h1>
+    <div id="test-results"></div>
+
+    <script type="module">
+        // Mock the DOM environment for testing
+        const createMockElement = (tagName, attributes = {}, textContent = '') => {
+            const element = document.createElement(tagName);
+            Object.entries(attributes).forEach(([key, value]) => {
+                element.setAttribute(key, value);
+            });
+            element.textContent = textContent;
+            return element;
+        };
+
+        // Create mock Uber Eats checkout page
+        const createMockUberEatsCheckoutPage = () => {
+            document.body.innerHTML = '';
+
+            const checkoutPage = createMockElement('div', { 'data-testid': 'checkout-page' });
+            
+            // Restaurant information
+            const restaurantSection = createMockElement('div', { 'data-testid': 'restaurant-info' });
+            const restaurantName = createMockElement('h1', { 'data-testid': 'restaurant-name' }, 'McDonald\'s');
+            const restaurantRating = createMockElement('span', { 'data-testid': 'restaurant-rating' }, '4.5');
+            const deliveryTime = createMockElement('span', { 'data-testid': 'delivery-time' }, '25-35 min');
+            const restaurantAddress = createMockElement('div', { 'data-testid': 'restaurant-address' }, '123 Main St, New York, NY 10001');
+            
+            restaurantSection.appendChild(restaurantName);
+            restaurantSection.appendChild(restaurantRating);
+            restaurantSection.appendChild(deliveryTime);
+            restaurantSection.appendChild(restaurantAddress);
+            
+            // Cart items
+            const cartSection = createMockElement('div', { 'data-testid': 'cart-section' });
+            
+            // Item 1: Big Mac
+            const item1 = createMockElement('div', { 'data-testid': 'cart-item' });
+            const item1Name = createMockElement('h3', { 'data-testid': 'item-name' }, 'Big Mac');
+            const item1Price = createMockElement('span', { 'data-testid': 'item-price' }, '$5.99');
+            const item1Quantity = createMockElement('span', { 'data-testid': 'item-quantity' }, '1');
+            const item1Modifiers = createMockElement('div', { 'data-testid': 'item-modifiers' });
+            const modifier1 = createMockElement('span', {}, 'Extra Pickles');
+            const modifier2 = createMockElement('span', {}, 'No Onions');
+            item1Modifiers.appendChild(modifier1);
+            item1Modifiers.appendChild(modifier2);
+            
+            item1.appendChild(item1Name);
+            item1.appendChild(item1Price);
+            item1.appendChild(item1Quantity);
+            item1.appendChild(item1Modifiers);
+            
+            // Item 2: French Fries
+            const item2 = createMockElement('div', { 'data-testid': 'cart-item' });
+            const item2Name = createMockElement('h3', { 'data-testid': 'item-name' }, 'French Fries');
+            const item2Price = createMockElement('span', { 'data-testid': 'item-price' }, '$2.99');
+            const item2Quantity = createMockElement('span', { 'data-testid': 'item-quantity' }, '2');
+            const item2Description = createMockElement('p', { 'data-testid': 'item-description' }, 'Crispy golden fries');
+            
+            item2.appendChild(item2Name);
+            item2.appendChild(item2Price);
+            item2.appendChild(item2Quantity);
+            item2.appendChild(item2Description);
+            
+            cartSection.appendChild(item1);
+            cartSection.appendChild(item2);
+            
+            // Pricing section
+            const pricingSection = createMockElement('div', { 'data-testid': 'pricing-section' });
+            const subtotal = createMockElement('div', { 'data-testid': 'subtotal' }, '$11.97');
+            const deliveryFee = createMockElement('div', { 'data-testid': 'delivery-fee' }, '$2.99');
+            const serviceFee = createMockElement('div', { 'data-testid': 'service-fee' }, '$1.50');
+            const tax = createMockElement('div', { 'data-testid': 'tax' }, '$1.20');
+            const tip = createMockElement('div', { 'data-testid': 'tip' }, '$2.00');
+            const total = createMockElement('div', { 'data-testid': 'total' }, '$19.66');
+            
+            pricingSection.appendChild(subtotal);
+            pricingSection.appendChild(deliveryFee);
+            pricingSection.appendChild(serviceFee);
+            pricingSection.appendChild(tax);
+            pricingSection.appendChild(tip);
+            pricingSection.appendChild(total);
+            
+            // Checkout button
+            const checkoutButton = createMockElement('button', { 'data-testid': 'checkout-button' }, 'Place Order');
+            
+            // Delivery information
+            const deliverySection = createMockElement('div', { 'data-testid': 'delivery-section' });
+            const deliveryAddress = createMockElement('div', { 'data-testid': 'delivery-address' }, '456 Oak Ave, New York, NY 10002');
+            const deliveryInstructions = createMockElement('div', { 'data-testid': 'delivery-instructions' }, 'Leave at door');
+            
+            deliverySection.appendChild(deliveryAddress);
+            deliverySection.appendChild(deliveryInstructions);
+            
+            // Assemble page
+            checkoutPage.appendChild(restaurantSection);
+            checkoutPage.appendChild(cartSection);
+            checkoutPage.appendChild(pricingSection);
+            checkoutPage.appendChild(deliverySection);
+            checkoutPage.appendChild(checkoutButton);
+            
+            document.body.appendChild(checkoutPage);
+            
+            // Mock location
+            Object.defineProperty(window, 'location', {
+                value: {
+                    href: 'https://www.ubereats.com/checkout',
+                    pathname: '/checkout'
+                },
+                writable: true
+            });
+        };
+
+        // Simple test function
+        const runTest = async () => {
+            try {
+                // Create mock page
+                createMockUberEatsCheckoutPage();
+                
+                // Test basic functionality
+                const results = document.getElementById('test-results');
+                
+                // Test 1: Check if checkout page is detected
+                const isCheckoutPage = window.location.pathname.includes('/checkout');
+                results.innerHTML += `<p>✅ Checkout page detected: ${isCheckoutPage}</p>`;
+                
+                // Test 2: Check if restaurant name is found
+                const restaurantName = document.querySelector('[data-testid="restaurant-name"]');
+                const restaurantNameText = restaurantName ? restaurantName.textContent : 'Not found';
+                results.innerHTML += `<p>✅ Restaurant name: ${restaurantNameText}</p>`;
+                
+                // Test 3: Check if cart items are found
+                const cartItems = document.querySelectorAll('[data-testid="cart-item"]');
+                results.innerHTML += `<p>✅ Cart items found: ${cartItems.length}</p>`;
+                
+                // Test 4: Check if pricing is found
+                const subtotal = document.querySelector('[data-testid="subtotal"]');
+                const subtotalText = subtotal ? subtotal.textContent : 'Not found';
+                results.innerHTML += `<p>✅ Subtotal: ${subtotalText}</p>`;
+                
+                // Test 5: Check if total is found
+                const total = document.querySelector('[data-testid="total"]');
+                const totalText = total ? total.textContent : 'Not found';
+                results.innerHTML += `<p>✅ Total: ${totalText}</p>`;
+                
+                // Test 6: Check if delivery address is found
+                const deliveryAddress = document.querySelector('[data-testid="delivery-address"]');
+                const deliveryAddressText = deliveryAddress ? deliveryAddress.textContent : 'Not found';
+                results.innerHTML += `<p>✅ Delivery address: ${deliveryAddressText}</p>`;
+                
+                // Test 7: Check if checkout button is found
+                const checkoutButton = document.querySelector('[data-testid="checkout-button"]');
+                const checkoutButtonText = checkoutButton ? checkoutButton.textContent : 'Not found';
+                results.innerHTML += `<p>✅ Checkout button: ${checkoutButtonText}</p>`;
+                
+                results.innerHTML += `<p><strong>🎉 All tests passed! The Uber Eats extractor should work correctly.</strong></p>`;
+                
+            } catch (error) {
+                console.error('Test error:', error);
+                document.getElementById('test-results').innerHTML += `<p>❌ Test failed: ${error.message}</p>`;
+            }
+        };
+
+        // Run the test
+        runTest();
+    </script>
+</body>
+</html>

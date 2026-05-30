@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Food Delivery Price Comparison</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f6f3ee;
+        --surface: #fffaf2;
+        --text: #1f2937;
+        --muted: #5b6472;
+        --accent: #d35400;
+        --accent-dark: #9a3412;
+        --border: #eadfce;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: Georgia, "Times New Roman", serif;
+        background:
+          radial-gradient(circle at top left, rgba(211, 84, 0, 0.08), transparent 30%),
+          linear-gradient(180deg, #fbf7f1 0%, var(--bg) 100%);
+        color: var(--text);
+      }
+
+      main {
+        max-width: 780px;
+        margin: 0 auto;
+        padding: 56px 20px 72px;
+      }
+
+      .card {
+        background: rgba(255, 250, 242, 0.92);
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        padding: 28px;
+        box-shadow: 0 12px 40px rgba(31, 41, 55, 0.08);
+        backdrop-filter: blur(10px);
+      }
+
+      h1, h2 {
+        margin: 0 0 12px;
+        line-height: 1.1;
+      }
+
+      h1 {
+        font-size: clamp(2.2rem, 6vw, 4rem);
+      }
+
+      h2 {
+        font-size: 1.4rem;
+        margin-top: 32px;
+      }
+
+      p, li {
+        font-size: 1.05rem;
+        line-height: 1.7;
+        color: var(--muted);
+      }
+
+      .eyebrow {
+        display: inline-block;
+        margin-bottom: 16px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        font-size: 0.78rem;
+        color: var(--accent-dark);
+      }
+
+      ul {
+        padding-left: 20px;
+      }
+
+      a {
+        color: var(--accent-dark);
+      }
+
+      .links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 24px;
+      }
+
+      .button {
+        display: inline-block;
+        padding: 12px 18px;
+        border-radius: 999px;
+        text-decoration: none;
+        background: var(--accent);
+        color: white;
+      }
+
+      .button.secondary {
+        background: transparent;
+        color: var(--accent-dark);
+        border: 1px solid var(--border);
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section class="card">
+        <span class="eyebrow">Chrome Extension Support</span>
+        <h1>Food Delivery Price Comparison</h1>
+        <p>
+          Compare supported checkout totals across DoorDash, Uber Eats, Grubhub, and Seamless so
+          it is easier to spot the best delivery or pickup option before you place an order.
+        </p>
+
+        <div class="links">
+          <a class="button" href="./privacy-policy/">Privacy Policy</a>
+          <a class="button secondary" href="./support/">Support</a>
+        </div>
+
+        <h2>What this site is for</h2>
+        <p>
+          This lightweight site is intended to provide the public policy and support links needed
+          for extension submission and user trust. Update the contact details before using it in a
+          live store listing.
+        </p>
+      </section>
+    </main>
+  </body>
+</html>

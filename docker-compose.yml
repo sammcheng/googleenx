@@ -1,0 +1,64 @@
+version: '3.8'
+
+services:
+  # MongoDB database
+  mongodb:
+    image: mongo:7.0
+    container_name: food-price-mongodb
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: password
+      MONGO_INITDB_DATABASE: food-price-comparison
+    volumes:
+      - mongodb_data:/data/db
+      - ./scripts/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+    networks:
+      - food-price-network
+
+  # Backend API
+  backend:
+    build:
+      context: .
+      dockerfile: apps/backend-api/Dockerfile
+    container_name: food-price-backend
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: production
+      PORT: 3000
+      MONGODB_URI: mongodb://admin:password@mongodb:27017/food-price-comparison?authSource=admin
+      JWT_SECRET: your-super-secret-jwt-key-here
+      ALLOWED_ORIGINS: http://localhost:3000,http://localhost:5173
+    depends_on:
+      - mongodb
+    networks:
+      - food-price-network
+    volumes:
+      - ./apps/backend-api:/app
+    command: ["pnpm", "dev"]
+
+  # Redis for caching (optional)
+  redis:
+    image: redis:7.2-alpine
+    container_name: food-price-redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - food-price-network
+
+volumes:
+  mongodb_data:
+    driver: local
+  redis_data:
+    driver: local
+
+networks:
+  food-price-network:
+    driver: bridge

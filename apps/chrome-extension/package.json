@@ -1,0 +1,40 @@
+{
+  "name": "food-price-comparison-extension",
+  "version": "1.0.0",
+  "description": "Chrome extension for comparing food delivery checkout prices across platforms",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build && node scripts/prepare-dist.mjs",
+    "package:zip": "node scripts/package-dist.mjs",
+    "release:validate": "node scripts/validate-release.mjs",
+    "release": "node scripts/release.mjs",
+    "preview": "vite preview",
+    "clean": "rm -rf dist",
+    "type-check": "tsc --noEmit",
+    "test": "vitest",
+    "test:watch": "vitest --watch",
+    "lint": "eslint src --ext .ts,.tsx",
+    "lint:fix": "eslint src --ext .ts,.tsx --fix"
+  },
+  "dependencies": {
+    "@shared/types": "workspace:*",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.21.3",
+    "axios": "^1.6.7",
+    "lucide-react": "^0.323.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.55",
+    "@types/react-dom": "^18.2.19",
+    "@types/chrome": "^0.0.254",
+    "@vitejs/plugin-react": "^4.2.1",
+    "typescript": "^5.3.3",
+    "vite": "^5.1.4",
+    "vitest": "^1.2.2",
+    "@testing-library/react": "^14.1.2",
+    "@testing-library/jest-dom": "^6.2.0",
+    "jsdom": "^24.0.0"
+  }
+}

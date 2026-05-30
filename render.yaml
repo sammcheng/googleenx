@@ -1,0 +1,26 @@
+services:
+  - type: web
+    name: food-price-comparison-api
+    runtime: node
+    plan: free
+    rootDir: .
+    buildCommand: corepack pnpm install --frozen-lockfile
+    startCommand: corepack pnpm --filter food-price-comparison-api start:runtime
+    healthCheckPath: /health/live
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: "3000"
+      - key: JWT_SECRET
+        sync: false
+      - key: CORS_ORIGINS
+        sync: false
+      - key: MONGODB_ENABLED
+        value: "false"
+      - key: MONGODB_REQUIRED
+        value: "false"
+      - key: REDIS_ENABLED
+        value: "false"
+      - key: REDIS_REQUIRED
+        value: "false"

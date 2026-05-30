@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ComparisonTable Component Demo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .demo-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .table-demo {
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 p-8">
+    <div class="demo-container">
+        <h1 class="text-3xl font-bold text-gray-900 mb-8">ComparisonTable Component Demo</h1>
+        
+        <div class="space-y-8">
+            <!-- Standard Table -->
+            <div>
+                <h2 class="text-xl font-semibold text-gray-800 mb-4">Standard Comparison Table</h2>
+                <div class="table-demo bg-white">
+                    <!-- Table Header -->
+                    <div class="bg-gray-50 border-b border-gray-200">
+                        <div class="grid grid-cols-5 gap-4 p-4">
+                            <div class="font-semibold text-gray-900">Platform</div>
+                            <div class="font-semibold text-gray-900 cursor-pointer hover:bg-gray-100 p-2 rounded flex items-center justify-between">
+                                Delivery Price
+                                <span class="text-sm text-gray-400">↕️</span>
+                            </div>
+                            <div class="font-semibold text-gray-900 cursor-pointer hover:bg-gray-100 p-2 rounded flex items-center justify-between">
+                                Pickup Price
+                                <span class="text-sm text-gray-400">↕️</span>
+                            </div>
+                            <div class="font-semibold text-gray-900 cursor-pointer hover:bg-gray-100 p-2 rounded flex items-center justify-between">
+                                Time
+                                <span class="text-sm text-gray-400">↕️</span>
+                            </div>
+                            <div class="font-semibold text-gray-900">Status</div>
+                        </div>
+                    </div>
+
+                    <!-- Table Body -->
+                    <div class="divide-y divide-gray-200">
+                        <!-- DoorDash Row - Best Deal -->
+                        <div class="grid grid-cols-5 gap-4 p-4 cursor-pointer hover:bg-gray-50 transition-colors duration-200">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center">
+                                    <span class="text-lg">🚚</span>
+                                </div>
+                                <div>
+                                    <div class="font-medium text-gray-900">DoorDash</div>
+                                    <div class="text-xs text-gray-600">Best delivery option</div>
+                                </div>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="flex items-center space-x-1">
+                                    <span class="font-semibold text-green-600">$19.66</span>
+                                    <span class="text-xs text-green-600">🏆</span>
+                                    <span class="text-xs text-green-600">(Save $5.00)</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="flex items-center space-x-1">
+                                    <span class="font-semibold text-green-600">$15.50</span>
+                                    <span class="text-xs text-green-600">🏆</span>
+                                    <span class="text-xs text-green-600">(Save $3.50)</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="flex items-center space-x-1">
+                                    <span class="text-green-600 font-semibold">25-35 min</span>
+                                    <span class="text-xs text-green-600">⚡</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <div class="inline-flex items-center space-x-1 px-2 py-1 rounded-full text-xs font-medium text-green-600 bg-green-100">
+                                    <span>✅</span>
+                                    <span>Available</span>
+                                </div>
+                                <button class="text-blue-600 hover:text-blue-800 text-sm font-medium ml-2">
+                                    Open →
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Uber Eats Row -->
+                        <div class="grid grid-cols-5 gap-4 p-4 cursor-pointer hover:bg-gray-50 transition-colors duration-200">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center">
+                                    <span class="text-lg">🚗</span>
+                                </div>
+                                <div>
+                                    <div class="font-medium text-gray-900">Uber Eats</div>
+                                </div>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="font-semibold text-gray-900">$21.50</span>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="font-semibold text-gray-900">$17.20</span>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="text-gray-900">30-40 min</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <div class="inline-flex items-center space-x-1 px-2 py-1 rounded-full text-xs font-medium text-green-600 bg-green-100">
+                                    <span>✅</span>
+                                    <span>Available</span>
+                                </div>
+                                <button class="text-blue-600 hover:text-blue-800 text-sm font-medium ml-2">
+                                    Open →
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Grubhub Row - Limited -->
+                        <div class="grid grid-cols-5 gap-4 p-4 cursor-pointer hover:bg-gray-50 transition-colors duration-200">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center">
+                                    <span class="text-lg">🛵</span>
+                                </div>
+                                <div>
+                                    <div class="font-medium text-gray-900">Grubhub</div>
+                                </div>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="font-semibold text-gray-900">$22.80</span>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="font-semibold text-gray-900">$18.50</span>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="text-gray-900">35-45 min</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <div class="inline-flex items-center space-x-1 px-2 py-1 rounded-full text-xs font-medium text-yellow-600 bg-yellow-100">
+                                    <span>⚠️</span>
+                                    <span>Limited</span>
+                                </div>
+                                <button class="text-blue-600 hover:text-blue-800 text-sm font-medium ml-2">
+                                    Open →
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Postmates Row - Unavailable -->
+                        <div class="grid grid-cols-5 gap-4 p-4 opacity-50 cursor-not-allowed">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center">
+                                    <span class="text-lg">📦</span>
+                                </div>
+                                <div>
+                                    <div class="font-medium text-gray-900">Postmates</div>
+                                </div>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="font-semibold text-gray-900">N/A</span>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="font-semibold text-gray-900">N/A</span>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="text-gray-900">N/A</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <div class="inline-flex items-center space-x-1 px-2 py-1 rounded-full text-xs font-medium text-red-600 bg-red-100">
+                                    <span>❌</span>
+                                    <span>Unavailable</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Table Footer -->
+                    <div class="bg-gray-50 border-t border-gray-200 px-4 py-3">
+                        <div class="flex items-center justify-between text-sm text-gray-600">
+                            <span>4 platforms compared</span>
+                            <span>Last updated: 2:30 PM</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile Table -->
+            <div>
+                <h2 class="text-xl font-semibold text-gray-800 mb-4">Mobile Comparison Table</h2>
+                <div class="space-y-3">
+                    <!-- DoorDash Card -->
+                    <div class="bg-white rounded-lg border border-gray-200 p-4 cursor-pointer hover:bg-gray-50 transition-colors duration-200">
+                        <div class="flex items-center justify-between mb-3">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center">
+                                    <span class="text-lg">🚚</span>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold text-gray-900">DoorDash</h3>
+                                    <p class="text-xs text-gray-600">Best delivery option</p>
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                                    🏆 Best
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-4 mb-3">
+                            <div>
+                                <div class="text-sm text-gray-600">Delivery</div>
+                                <div class="font-semibold text-green-600">$19.66</div>
+                                <div class="text-xs text-gray-600">25-35 min</div>
+                            </div>
+                            <div>
+                                <div class="text-sm text-gray-600">Pickup</div>
+                                <div class="font-semibold text-green-600">$15.50</div>
+                                <div class="text-xs text-gray-600">15-20 min</div>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center justify-between">
+                            <div class="inline-flex items-center space-x-1 px-2 py-1 rounded-full text-xs font-medium text-green-600 bg-green-100">
+                                <span>✅</span>
+                                <span>Available</span>
+                            </div>
+                            <button class="text-blue-600 hover:text-blue-800 text-sm font-medium">
+                                View on Platform →
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Uber Eats Card -->
+                    <div class="bg-white rounded-lg border border-gray-200 p-4 cursor-pointer hover:bg-gray-50 transition-colors duration-200">
+                        <div class="flex items-center justify-between mb-3">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center">
+                                    <span class="text-lg">🚗</span>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold text-gray-900">Uber Eats</h3>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-4 mb-3">
+                            <div>
+                                <div class="text-sm text-gray-600">Delivery</div>
+                                <div class="font-semibold text-gray-900">$21.50</div>
+                                <div class="text-xs text-gray-600">30-40 min</div>
+                            </div>
+                            <div>
+                                <div class="text-sm text-gray-600">Pickup</div>
+                                <div class="font-semibold text-gray-900">$17.20</div>
+                                <div class="text-xs text-gray-600">20-25 min</div>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center justify-between">
+                            <div class="inline-flex items-center space-x-1 px-2 py-1 rounded-full text-xs font-medium text-green-600 bg-green-100">
+                                <span>✅</span>
+                                <span>Available</span>
+                            </div>
+                            <button class="text-blue-600 hover:text-blue-800 text-sm font-medium">
+                                View on Platform →
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Features List -->
+            <div>
+                <h2 class="text-xl font-semibold text-gray-800 mb-4">Features</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="space-y-3">
+                        <div class="flex items-start space-x-3">
+                            <span class="text-green-600 text-lg">✅</span>
+                            <div>
+                                <h3 class="font-medium text-gray-900">Sortable Columns</h3>
+                                <p class="text-sm text-gray-600">Click headers to sort by price, time, or other criteria</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <span class="text-green-600 text-lg">✅</span>
+                            <div>
+                                <h3 class="font-medium text-gray-900">Best Deal Highlighting</h3>
+                                <p class="text-sm text-gray-600">Color-coded best deals with savings indicators</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <span class="text-green-600 text-lg">✅</span>
+                            <div>
+                                <h3 class="font-medium text-gray-900">Status Indicators</h3>
+                                <p class="text-sm text-gray-600">Visual status for available, unavailable, and limited platforms</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <span class="text-green-600 text-lg">✅</span>
+                            <div>
+                                <h3 class="font-medium text-gray-900">Platform Logos</h3>
+                                <p class="text-sm text-gray-600">Consistent platform branding and recognition</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="flex items-start space-x-3">
+                            <span class="text-green-600 text-lg">✅</span>
+                            <div>
+                                <h3 class="font-medium text-gray-900">Click to Open</h3>
+                                <p class="text-sm text-gray-600">Click rows to open platforms in new tabs</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <span class="text-green-600 text-lg">✅</span>
+                            <div>
+                                <h3 class="font-medium text-gray-900">Accessibility</h3>
+                                <p class="text-sm text-gray-600">Full ARIA support and keyboard navigation</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <span class="text-green-600 text-lg">✅</span>
+                            <div>
+                                <h3 class="font-medium text-gray-900">Responsive Design</h3>
+                                <p class="text-sm text-gray-600">Mobile-optimized layouts and responsive design</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <span class="text-green-600 text-lg">✅</span>
+                            <div>
+                                <h3 class="font-medium text-gray-900">Loading States</h3>
+                                <p class="text-sm text-gray-600">Skeleton loading and error handling</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Technical Details -->
+            <div>
+                <h2 class="text-xl font-semibold text-gray-800 mb-4">Technical Details</h2>
+                <div class="bg-gray-50 rounded-lg p-4 space-y-2">
+                    <div class="text-sm">
+                        <span class="font-medium text-gray-700">Framework:</span>
+                        <span class="text-gray-600 ml-2">React + TypeScript</span>
+                    </div>
+                    <div class="text-sm">
+                        <span class="font-medium text-gray-700">Styling:</span>
+                        <span class="text-gray-600 ml-2">Tailwind CSS</span>
+                    </div>
+                    <div class="text-sm">
+                        <span class="font-medium text-gray-700">Accessibility:</span>
+                        <span class="text-gray-600 ml-2">ARIA labels, keyboard navigation</span>
+                    </div>
+                    <div class="text-sm">
+                        <span class="font-medium text-gray-700">Testing:</span>
+                        <span class="text-gray-600 ml-2">Vitest + React Testing Library</span>
+                    </div>
+                    <div class="text-sm">
+                        <span class="font-medium text-gray-700">Features:</span>
+                        <span class="text-gray-600 ml-2">Sorting, highlighting, responsive design</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
