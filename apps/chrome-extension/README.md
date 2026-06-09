@@ -30,11 +30,11 @@ Load [dist](/Users/sammcheng/Desktop/web5/apps/chrome-extension/dist) in `chrome
 ## Production build
 
 1. Create an env file from [.env.example](/Users/sammcheng/Desktop/web5/apps/chrome-extension/.env.example)
-2. Set `VITE_API_BASE_URL` to the real production API
+2. Set `VITE_API_BASE_URL` to the deployed production API if you need to override the default live backend
 3. Run the production release flow:
 
 ```bash
-VITE_API_BASE_URL=https://your-real-api.example.com \
+VITE_API_BASE_URL=https://googleenx.onrender.com \
 corepack pnpm --filter food-price-comparison-extension release
 ```
 

@@ -6,7 +6,7 @@ import {
   STORAGE_KEYS,
 } from '@/shared/extension';
 
-const configuredApiBaseUrl = import.meta.env.VITE_API_BASE_URL ?? 'https://api.foodpricecomparison.com';
+const configuredApiBaseUrl = import.meta.env.VITE_API_BASE_URL ?? 'https://googleenx.onrender.com';
 
 const mockChrome = {
   runtime: {

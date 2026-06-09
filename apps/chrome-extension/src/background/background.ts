@@ -13,7 +13,7 @@ import {
 } from '@/shared/extension';
 
 const API_CONFIG = {
-  baseUrl: (import.meta.env.VITE_API_BASE_URL || 'https://api.foodpricecomparison.com').replace(/\/$/, ''),
+  baseUrl: (import.meta.env.VITE_API_BASE_URL || 'https://googleenx.onrender.com').replace(/\/$/, ''),
   compareEndpoint: '/api/v1/compare',
   healthEndpoint: '/api/v1/health',
   timeoutMs: 30000,

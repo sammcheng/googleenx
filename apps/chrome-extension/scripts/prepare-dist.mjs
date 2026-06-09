@@ -5,7 +5,7 @@ import { fileURLToPath } from 'node:url';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const appRoot = resolve(__dirname, '..');
 const distRoot = resolve(appRoot, 'dist');
-const apiBaseUrl = (process.env.VITE_API_BASE_URL || 'https://api.foodpricecomparison.com').replace(/\/$/, '');
+const apiBaseUrl = (process.env.VITE_API_BASE_URL || 'https://googleenx.onrender.com').replace(/\/$/, '');
 const apiOrigin = new URL(apiBaseUrl).origin;
 
 await mkdir(resolve(distRoot, 'icons'), { recursive: true });
@@ -19,7 +19,7 @@ const manifest = JSON.parse(manifestSource);
 manifest.host_permissions = Array.from(
   new Set(
     (manifest.host_permissions || []).map((permission) =>
-      permission === 'https://api.foodpricecomparison.com/*' ? `${apiOrigin}/*` : permission,
+      permission === 'https://googleenx.onrender.com/*' ? `${apiOrigin}/*` : permission,
     ),
   ),
 );

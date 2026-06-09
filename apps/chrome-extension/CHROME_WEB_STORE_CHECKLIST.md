@@ -2,8 +2,8 @@
 
 ## Code and package
 
-- [ ] Set `VITE_API_BASE_URL` to the real production API
-- [ ] Run `VITE_API_BASE_URL=https://your-real-api.example.com corepack pnpm --filter food-price-comparison-extension release`
+- [ ] Confirm `VITE_API_BASE_URL` points at the deployed production API
+- [ ] Run `VITE_API_BASE_URL=https://googleenx.onrender.com corepack pnpm --filter food-price-comparison-extension release`
 - [ ] Confirm the zip exists at [artifacts/food-delivery-price-comparison-extension.zip](/Users/sammcheng/Desktop/web5/apps/chrome-extension/artifacts/food-delivery-price-comparison-extension.zip)
 
 ## Manual verification
@@ -25,8 +25,9 @@
 - [ ] Promotional images if required
 - [ ] Support email
 - [ ] Public website or support page
-- [ ] If using GitHub Pages, publish the docs site from [docs](/Users/sammcheng/Desktop/web5/docs) and record the final privacy/support URLs
-  Use the GitHub Actions workflow at [.github/workflows/pages.yml](/Users/sammcheng/Desktop/web5/.github/workflows/pages.yml) after enabling Pages for the repository.
+- [ ] Record the live support URLs:
+  Privacy policy: [https://food-price-comparison-site.onrender.com/privacy-policy/](https://food-price-comparison-site.onrender.com/privacy-policy/)
+  Support: [https://food-price-comparison-site.onrender.com/support/](https://food-price-comparison-site.onrender.com/support/)
 
 ## Compliance
 

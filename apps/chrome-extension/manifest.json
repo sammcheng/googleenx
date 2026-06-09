@@ -15,7 +15,7 @@
     "https://*.ubereats.com/*",
     "https://*.grubhub.com/*",
     "https://*.seamless.com/*",
-    "https://api.foodpricecomparison.com/*"
+    "https://googleenx.onrender.com/*"
   ],
   "background": {
     "service_worker": "background/background.js",
@@ -67,7 +67,7 @@
     }
   ],
   "content_security_policy": {
-    "extension_pages": "script-src 'self'; object-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://api.foodpricecomparison.com;"
+    "extension_pages": "script-src 'self'; object-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://googleenx.onrender.com;"
   },
   "minimum_chrome_version": "88"
 }
